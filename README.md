@@ -52,3 +52,8 @@ node scripts\verifer.mjs
 ```
 
 8. interact in the L2 by making transactions :)
+
+
+### Transaction lifecycle
+![Alt text](./ORU_Arch_V1.0.0.svg)
+<!-- <img src="./ORU_Arch_V1.0.0.svg">-->
