@@ -29,7 +29,7 @@ successful deployment should output follow
 Compiled 7 Solidity files successfully
 opr_contract deployed to 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
-If the contract address difers with above, change it in the .env file.
+If the contract address differs with above, change it in the .env file.
 
 5. connect user wallet.\
 In the root directory and run
