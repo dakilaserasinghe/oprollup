@@ -44,7 +44,7 @@ open a command prompt in the root directory and run
 node scripts\sequencer.mjs
 ```
 
-6. run Verifier.
+6. run Verifier.\
 open a command prompt in the root directory and run
 ```shell
 node scripts\verifer.mjs
