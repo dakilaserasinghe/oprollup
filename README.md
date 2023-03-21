@@ -26,8 +26,8 @@ npx hardhat run scripts/deploy.js --network localhost
 ```
 successful deployment should output follow
 ```shell
-    Compiled 7 Solidity files successfully
-    opr_contract deployed to 0x5FbDB2315678afecb367f032d93F642f64180aa3
+Compiled 7 Solidity files successfully
+opr_contract deployed to 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 If the contract address differs with above, change it in the .env file.
 
