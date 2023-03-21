@@ -8,21 +8,21 @@ Setup guide:
 go to the root directory and run.
 
 ```shell
-    npm install    
+npm install    
 ```
 2. create a .env file according to the given sample file.
 
 3. start a local blockchain (hardhat node)\
 For Windows: open Windows Subsystem for Linux (WSL) in the the project directory and run.\
 ```shell
-    npx hardhat node
+npx hardhat node
 ```
 
 4. deploy contracts.\
 open a command prompt (cmd) a terminal (WSL) or in the project root directory.
 ```shell
-    npx hardhat run scripts/deploy.js or 
-    npx hardhat run scripts/deploy.js --network localhost
+npx hardhat run scripts/deploy.js or 
+npx hardhat run scripts/deploy.js --network localhost
 ```
 successful deployment should output follow
 ```shell
@@ -34,21 +34,21 @@ If the contract address differs with above, change it in the .env file.
 5. connect user wallet.\
 In the root directory and run
 ```shell
-    npm link
-    opr
+npm link
+opr
 ```
 This should list down all the wallet commands (add, l1deposit etc.)
 
 6. run sequencer.\
 open a command prompt in the root directory and run
 ```shell
-    node scripts\sequencer.mjs
+node scripts\sequencer.mjs
 ```
 
 7. run Verifier.\
 open a command prompt in the root directory and run
 ```shell
-    node scripts\verifer.mjs
+node scripts\verifer.mjs
 ```
 
 8. interact in the L2 by making transactions :)
