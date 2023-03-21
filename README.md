@@ -13,7 +13,7 @@ npm install
 2. create a .env file according to the given sample file.
 
 3. start a local blockchain (hardhat node)\
-For Windows: open Windows Subsystem for Linux (WSL) in the the project directory and run.\
+For Windows: open Windows Subsystem for Linux (WSL) in the the project directory and run.
 ```shell
 npx hardhat node
 ```
@@ -45,7 +45,7 @@ open a command prompt in the root directory and run
 node scripts\sequencer.mjs
 ```
 
-7. run Verifier.\
+7. run verifier.\
 open a command prompt in the root directory and run
 ```shell
 node scripts\verifer.mjs
