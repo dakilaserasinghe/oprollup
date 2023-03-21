@@ -38,7 +38,7 @@ opr
 ```
 This should list down all the wallet commands (add, l1deposit etc.)
 
-5. run sequencer.\n
+5. run sequencer.
 open a command prompt in the root directory and run
 ```shell
 node scripts\sequencer.mjs
