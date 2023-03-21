@@ -89,8 +89,9 @@ contract OPR_Contract {
         payable
         ownerOnly
     {
+        // sequencer should adhere to the l1 batch id.
         require(batchId == _batchId, "Invalid batch Id for sequenced batch");
-        // fidelity bond is set to 1 ether.
+        // fidenlity bond requirement.
         require(msg.value >= fidelityBond, "Insufficient fidelity bond value");
         uint256 finality = block.timestamp + challengePeriod;
         scc.push(Lib_utils.stateCommitments(_preStateRoot,
