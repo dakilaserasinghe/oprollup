@@ -1,7 +1,7 @@
 {
   "name": "opr",
   "version": "1.0.0",
-  "description": "This project demonstrates a optimistic rollup implementation.",
+  "description": "This project demonstrates an optimistic rollup implementation.",
   "main": "index.js",
   "bin": "./bin/opr.js",
   "scripts": {
