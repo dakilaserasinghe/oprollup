@@ -10,14 +10,15 @@ go to the root directory and run.
 ```shell
 npm install    
 ```
+2. create a .env file according to the given sample file.
 
-2. start a local blockchain (hardhat node)\
+3. start a local blockchain (hardhat node)\
 For Windows: open Windows Subsystem for Linux (WSL) in the the project directory and run.\
 ```shell
     npx hardhat node
 ```
 
-3. deploy contracts.\
+4. deploy contracts.\
 open a command prompt (cmd) a terminal (WSL) or in the project root directory.
 ```shell
     npx hardhat run scripts/deploy.js or 
@@ -30,7 +31,7 @@ opr_contract deployed to 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 If the contract address difers with above, change it in the .env file.
 
-4. connect user wallet.\
+5. connect user wallet.\
 In the root directory and run
 ```shell
 npm link
@@ -38,14 +39,16 @@ opr
 ```
 This should list down all the wallet commands (add, l1deposit etc.)
 
-5. run sequencer.\
+6. run sequencer.\
 open a command prompt in the root directory and run
 ```shell
 node scripts\sequencer.mjs
 ```
 
-6. run Verifier.\
+7. run Verifier.\
 open a command prompt in the root directory and run
 ```shell
 node scripts\verifer.mjs
 ```
+
+8. interact in the L2 by making transactions :)
