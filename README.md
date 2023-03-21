@@ -8,7 +8,7 @@ Setup guide:
 go to the root directory and run.
 
 ```shell
-npm install    
+    npm install    
 ```
 2. create a .env file according to the given sample file.
 
@@ -26,29 +26,29 @@ open a command prompt (cmd) a terminal (WSL) or in the project root directory.
 ```
 successful deployment should output follow
 ```shell
-Compiled 7 Solidity files successfully
-opr_contract deployed to 0x5FbDB2315678afecb367f032d93F642f64180aa3
+    Compiled 7 Solidity files successfully
+    opr_contract deployed to 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 If the contract address differs with above, change it in the .env file.
 
 5. connect user wallet.\
 In the root directory and run
 ```shell
-npm link
-opr
+    npm link
+    opr
 ```
 This should list down all the wallet commands (add, l1deposit etc.)
 
 6. run sequencer.\
 open a command prompt in the root directory and run
 ```shell
-node scripts\sequencer.mjs
+    node scripts\sequencer.mjs
 ```
 
 7. run Verifier.\
 open a command prompt in the root directory and run
 ```shell
-node scripts\verifer.mjs
+    node scripts\verifer.mjs
 ```
 
 8. interact in the L2 by making transactions :)
