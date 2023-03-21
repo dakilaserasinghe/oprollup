@@ -1,6 +1,6 @@
 # Design and Implementation of an Optimistic Rollup System
 
-This project demonstrates a optimistic rollup implementation.
+This project demonstrates an optimistic rollup implementation.
 
 Setup guide:
 
