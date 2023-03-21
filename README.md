@@ -2,7 +2,7 @@
 
 This project demonstrates an optimistic rollup implementation.
 
-Setup guide:
+### Setup guide
 
 1. install packages:
 go to the root directory and run.
