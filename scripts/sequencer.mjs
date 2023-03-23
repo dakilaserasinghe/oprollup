@@ -501,7 +501,10 @@ class Sequencer extends Listner {
         this.transactionLocalMng(eligible);
     }
 
-    // L2Transfers L2 <-> L2
+    /**
+     * L2transfers
+     * peer-to-peer transactions in l2.
+     */
     l2transfer() {
         assert(this.txref);
         assert(this.tx);
@@ -546,7 +549,12 @@ class Sequencer extends Listner {
         this.transactionLocalMng(eligible);
     }
 
-    // withdrawals L2 -> L1
+    /**
+     * L2 withdrawal
+     * peer-to-peer transaction.
+     * L2 withdrawal updates the statemap in l2
+     * user will then make a l1withdraw to the l1.
+     */ 
     withdraw() {
         assert(this.txref);
         assert(this.tx);
@@ -580,13 +588,11 @@ class Sequencer extends Listner {
         this.transactionLocalMng(eligible);
     }
 
+    /**
+     * compress a batch of transactions.
+     * first data is encoded and then compressed.
+     */
     compressBatch(batch) {
-        /**
-         * compress a batch of transactions.
-         *  steps are followed:    
-         *  1. first encode the data.
-         *  2. compress the encoded data.
-         */
         const compAlgorithm = 'pako';
         const abiEncodedData = this.abicoder.encode(["tuple(address _sender, address _target, string _type," +
             " uint256 _value, uint256 _nonce, uint256 _timestamp, uint256 _txid)[] _txLog"],
@@ -609,7 +615,9 @@ class Sequencer extends Listner {
         return undefined;
     }
 
-    // sequence the transaction into a batch.
+    /**
+     * sequence the transaction into a batch.
+    */
     sequenceTx(tx) {
         this.sequencedTransactionBatch.push([tx.sender,
         tx.target,
