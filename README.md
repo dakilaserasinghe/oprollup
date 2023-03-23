@@ -2,7 +2,7 @@
 
 This project demonstrates an optimistic rollup implementation.
 
-Setup guide:
+### Setup guide
 
 1. install packages:
 go to the root directory and run.
@@ -52,3 +52,8 @@ node scripts\verifer.mjs
 ```
 
 8. interact in the L2 by making transactions :)
+
+
+### Transaction lifecycle
+![Alt text](./ORU_Arch_V1.0.0.svg)
+<!-- <img src="./ORU_Arch_V1.0.0.svg">-->
