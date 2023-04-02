@@ -35,7 +35,7 @@ contract OPR_Contract {
     // state commitment chain
     Lib_utils.stateCommitments[] scc;
 
-    constructor() { 
+    constructor() {
         owner = msg.sender;
         fidelityBond = 10 ether;
     }

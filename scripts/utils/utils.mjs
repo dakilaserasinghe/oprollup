@@ -3,7 +3,8 @@ import * as abi_1 from "@ethersproject/abi";
 import ethers from 'ethers';
 import { keccak256 } from 'ethereum-cryptography/keccak.js';
 import { StandardMerkleTree } from "../merkle-tree/dist/standard.js";
-import { hexToBytes, bytesToHex, concatBytes, utf8ToBytes } from 'ethereum-cryptography/utils.js';
+import { hexToBytes, bytesToHex, concatBytes, utf8ToBytes, toHex } from 'ethereum-cryptography/utils.js';
+import secp from 'ethereum-cryptography/secp256k1.js';
 import assert from 'assert';
 import { defaultAbiCoder } from '@ethersproject/abi';
 
@@ -86,6 +87,30 @@ const standardLeafHash = (value) => {
     return bytesToHex(keccak256(keccak256(hexToBytes(defaultAbiCoder.encode(types, value)))));
 };
 
+/**
+ * recover address from the signed transaction.
+ * @param {*} signature transaction signature
+ * @param {*} target target adddress
+ * @param {*} value value
+ * @param {*} nonce nonce
+ * @param {*} recoveryBit address recover bit 
+ * @returns sender address
+ */
+const recoverSender = (signature, target, value, nonce, recoveryBit) => {
+    const msgHash = keccak256(utf8ToBytes(JSON.stringify({
+        target: target,
+        value: value,
+        nonce: nonce
+    })));
+
+    // const msgHash = keccak256(utf8ToBytes(value));
+    const recoveredPubkey = secp.recoverPublicKey(msgHash, signature, recoveryBit);
+    const sender = toHex(keccak256(recoveredPubkey.slice(1)).slice(-20));
+    return '0x' + sender;
+};
+
+
+
 // creating a transaction with extracted calldata for queuing.
 // for Sequencer.
 const createTransaction = (txId, sender, target, type, value, nonce) => {
@@ -167,5 +192,6 @@ export {
     logWarn,
     fakeRoot,
     l2Status,
-    standardLeafHash
+    standardLeafHash,
+    recoverSender
 }

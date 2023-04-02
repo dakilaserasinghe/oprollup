@@ -6,6 +6,9 @@ const axios = require('axios');
 const hre = require('hardhat');
 const { ethers } = require('hardhat');
 const fs = require('fs');
+const secp = require('ethereum-cryptography/secp256k1');
+const { keccak256 } = require('ethereum-cryptography/keccak.js');
+const { toHex, utf8ToBytes } = require('ethereum-cryptography/utils.js');
 const { error } = require('console');
 
 const sequencerurl = `http://localhost:${process.env.SEQUENCER_PORT}`;
@@ -66,7 +69,7 @@ class User {
         } else {
             const signer = new ethers.Wallet(privateKey, this.provider);
             this.wallet[key] = {
-                "privateKey": privateKey,
+                "privateKey": signer.privateKey,
                 "nonce": 0,
                 "address": signer.address
             }
@@ -88,6 +91,14 @@ class User {
             console.log(`key ${key} not found in the wallet`)
             return false;
         }
+    }
+
+    messageHash(target, value, nonce) {
+        return keccak256(utf8ToBytes(JSON.stringify({
+            target: target,
+            value: value,
+            nonce: nonce
+        })));
     }
 
     async l1deposit(key, ether) {
@@ -126,13 +137,27 @@ class User {
     async l2transfer(key, target, value, nonce) {
         const address = this.wallet[key].address;
         if (address) {
-            const { data: txid } = await axios.post(`${sequencerurl}/l2transfer`, {
-                sender: address,
+            // parse value
+            value = ethers.utils.parseEther(value).toString();
+            //sign message
+            const [signature, recoveryBit] = await secp.sign(
+                this.messageHash(target, value, nonce),
+                this.wallet[key].privateKey.substring(2),
+                { recovered: true });
+            // send to sequencer
+            const { data: tx } = await axios.post(`${sequencerurl}/l2transfer`, {
+                signature: toHex(signature),
                 target: target,
-                value: ethers.utils.parseEther(value).toString(),
-                nonce: nonce
+                value: value,
+                nonce: nonce,
+                recoveryBit: recoveryBit
             });
-            console.log("tx reference : ", txid.id);
+            if (tx.success) {
+                console.log("tx reference : ", tx.id);
+            } else {
+                console.log("transaction failed.");
+                console.log(`Error Message: ${tx.errormsg}`);
+            }
         } else {
             console.log(`address ${address} is not found`);
         }
@@ -141,13 +166,27 @@ class User {
     async l2withdraw(key, value, nonce) {
         const address = this.wallet[key].address;
         if (address) {
-            const { data: txid } = await axios.post(`${sequencerurl}/l2withdraw`, {
-                sender: address,
+            // parse value
+            value = ethers.utils.parseEther(value).toString();
+            //sign message
+            const [signature, recoveryBit] = await secp.sign(
+                this.messageHash(address, value, nonce),
+                this.wallet[key].privateKey.substring(2),
+                { recovered: true });
+            // send to sequencer
+            const { data: tx } = await axios.post(`${sequencerurl}/l2withdraw`, {
+                signature: toHex(signature),
                 target: address,
-                value: ethers.utils.parseEther(value).toString(),
-                nonce: nonce
+                value: value,
+                nonce: nonce,
+                recoveryBit: recoveryBit
             });
-            console.log("tx reference : ", txid.id);
+            if (tx.success)
+                console.log("tx reference : ", tx.id);
+            else {
+                console.log("transaction failed.");
+                console.log(`Error Message: ${tx.errormsg}`);
+            }
         } else {
             console.log(`address ${address} is not found`);
         }

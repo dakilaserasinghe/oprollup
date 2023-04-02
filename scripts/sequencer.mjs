@@ -14,9 +14,11 @@ import {
     logError,
     logInfo,
     logWarn,
-    l2Status
+    l2Status,
+    recoverSender
 } from './utils/utils.mjs'
 import { assert } from 'console';
+import { getAddress } from '@ethersproject/address';
 
 let eventEmitter = new events.EventEmitter();
 const app = express();
@@ -805,7 +807,7 @@ eventEmitter.on('sequence', callSequence);
 setInterval(() => { eventEmitter.emit('sequence'); }, 100000);
 
 eventEmitter.on('chainUpdate', callChainUpdate);
-setInterval(() => { eventEmitter.emit('chainUpdate'); }, 600000);
+setInterval(() => { eventEmitter.emit('chainUpdate'); }, 150000);
 
 eventEmitter.on('listen', listner);
 setInterval(() => { eventEmitter.emit('listen'); }, 60000);
@@ -838,7 +840,7 @@ app.post('/getbalance', async (req, res) => {
         }
     } catch (error) {
         res.status = 500;
-        res.send({ error: true, message: error.message });
+        res.send({ error: true, errormsg: error.message });
     }
     sequencer.semaphore.release();
 })
@@ -846,20 +848,28 @@ app.post('/getbalance', async (req, res) => {
 app.post('/l2transfer', async (req, res) => {
     await sequencer.semaphore.acquire();
     const body = req.body;
-    console.log(`user l2 transfer from ${body.sender}`);
+    console.log(`user l2 transfer received`);
+
     try {
+        const sender = recoverSender(body.signature,
+            body.target,
+            body.value,
+            body.nonce,
+            body.recoveryBit);
+
+        // create rollup transaction.
         const l2tx = createTransaction(sequencer.txid++,
-            body.sender,
+            getAddress(sender), //checksum address
             body.target,
             'l2transfer',
             BigInt(body.value),
             body.nonce);
         sequencer.txMap.set(l2tx.id, l2tx);
         sequencer.queue.push({ id: l2tx.id, type: l2tx.type, timestamp: l2tx.timestamp });
-        res.send({ id: l2tx.id });
+        res.send({ success: true, id: l2tx.id });
     } catch (error) {
         res.status = 500;
-        res.send({ error: true, message: error.message });
+        res.send({ success: false, errormsg: error.message });
     }
     sequencer.semaphore.release();
 })
@@ -869,18 +879,24 @@ app.post('/l2withdraw', async (req, res) => {
     const body = req.body;
     console.log(`user l2 withdraw from ${body.sender}`);
     try {
+        const sender = recoverSender(body.signature,
+            body.target,
+            body.value,
+            body.nonce,
+            body.recoveryBit);
+
         const l2tx = createTransaction(sequencer.txid++,
-            body.sender,
+            getAddress(sender), //checksum address
             body.target,
             'withdraw',
             BigInt(body.value),
             body.nonce);
         sequencer.txMap.set(l2tx.id, l2tx);
         sequencer.queue.push({ id: l2tx.id, type: l2tx.type, timestamp: l2tx.timestamp });
-        res.send({ id: l2tx.id });
+        res.send({ success: true, id: l2tx.id });
     } catch (error) {
         res.status = 500;
-        res.send({ error: true, message: error.message });
+        res.send({ sucess: false, errormsg: error.message });
     }
     sequencer.semaphore.release();
 })
@@ -910,7 +926,7 @@ app.post('/getstatus', async (req, res) => {
         }
     } catch (error) {
         res.status = 500;
-        res.send({ error: true, message: error.message });
+        res.send({ error: true, errormsg: error.message });
     }
     sequencer.semaphore.release();
 })
