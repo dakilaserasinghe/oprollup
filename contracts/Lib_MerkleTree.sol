@@ -2,6 +2,11 @@
 pragma solidity ^0.8.17;
 import { Lib_utils } from "./Lib_utils.sol";
 
+/**
+ * @title Lib_MerkleTree
+ * @author Dakila Serasinghe
+ */
+
 library Lib_MerkleTree {
 
     /**
@@ -72,7 +77,7 @@ library Lib_MerkleTree {
 
     /**
      * @notice create a merkle tree from the hashed leaves.
-     * @param _elements hashed leaves array.
+     * @param _elements Array of hashes from which to generate a merkle root.
      * @return root root of the merkle tree.
      */
     function getMerkleRoot(bytes32[] memory _elements) internal pure returns (bytes32) {

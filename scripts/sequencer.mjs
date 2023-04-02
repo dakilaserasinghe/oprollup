@@ -92,7 +92,7 @@ class Sequencer extends Listner {
         // transaction retention time in sequencer logs.
         // this decides how long a transaction record is kept
         // with sequencer storages.
-        this.retentionTime = 60 * 60000;
+        this.retentionTime = 30 * 60000; // 30 mins
 
         // **** sequencer test ****
         // testing a malicious sequencer re-batching
@@ -599,7 +599,7 @@ class Sequencer extends Listner {
             [batch]);
         console.log("Batch encoded successfully.");
         console.log(`Encoded Batch : ${abiEncodedData}`);
-        console.log(`Encoded Batch : ${Buffer.from(abiEncodedData)}`);
+        // console.log(`Encoded Batch : ${Buffer.from(abiEncodedData)}`);
 
         if (compAlgorithm == 'pako') {
             const input = new Uint8Array(
@@ -617,7 +617,7 @@ class Sequencer extends Listner {
 
     /**
      * sequence the transaction into a batch.
-    */
+     */
     sequenceTx(tx) {
         this.sequencedTransactionBatch.push([tx.sender,
         tx.target,

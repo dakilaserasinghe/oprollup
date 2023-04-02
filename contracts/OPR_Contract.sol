@@ -132,7 +132,7 @@ contract OPR_Contract {
         require(msg.value >= fidelityBond, "Insufficient fidelity bond value");
 
         // challenged batch should be already commited by the sequencer.
-        require(_batchId <= batchId, "Invalid batch Id for tx verification.");
+        require(_batchId < batchId, "Invalid batch Id for tx verification.");
 
         blockIndex = _batchId - batchoffset;
         require(block.timestamp <= scc[blockIndex].finality,

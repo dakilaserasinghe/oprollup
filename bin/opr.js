@@ -117,7 +117,7 @@ class User {
             const { data: balance } = await axios.post(`${sequencerurl}/getbalance`, {
                 address: address
             });
-            console.log("L2 Balance : ", balance.balance);
+            console.log("L2 Balance : ", balance.balance.toString());
         } else {
             console.log(`address ${address} is not found`);
         }
@@ -132,7 +132,7 @@ class User {
                 value: ethers.utils.parseEther(value).toString(),
                 nonce: nonce
             });
-            console.log("tx id : ", txid);
+            console.log("tx reference : ", txid.id);
         } else {
             console.log(`address ${address} is not found`);
         }
@@ -147,7 +147,7 @@ class User {
                 value: ethers.utils.parseEther(value).toString(),
                 nonce: nonce
             });
-            console.log("tx id : ", txid);
+            console.log("tx reference : ", txid.id);
         } else {
             console.log(`address ${address} is not found`);
         }
