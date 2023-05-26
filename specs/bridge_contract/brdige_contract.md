@@ -68,7 +68,7 @@ the owner, confirming the validity of the user’s address.
 &nbsp;
 
 <div align="center">
-    <img src="withdraw_authentication.PNG" alt="Image Alt Text" width="70%" height="70%" />
+    <img src="withdraw_authentication.PNG" alt="Image Alt Text" width="50%" height="50%" />
     <p><strong>Figure 1 : Authentication Process for Layer-1 Withdrawal</strong></p>
 </div>
 &nbsp;
