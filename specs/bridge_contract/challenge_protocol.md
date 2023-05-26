@@ -9,7 +9,7 @@ intended malicious batch should not have exceeded the challenge period and submi
 transaction batch should resemble the same hash value in the SCC. These checks will
 be executed in the phase 1 of the challenge protocol.
 The second phase is dedicated to data decompression. We use puff decompression
-algorithm[97] to decompress data. Here, the data decompression results in UTF-8
+algorithm to decompress data. Here, the data decompression results in UTF-8
 format. This is converted back to a hex stream before the Application Binary Interface
 (ABI) decode.
 
