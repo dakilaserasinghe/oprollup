@@ -33,8 +33,62 @@ and “l2withdraw” which allows a user to stage a Layer-2 withdraw before he w
 in Layer-1.
 
 &nbsp;
+&nbsp;
+
+### Deposit Transaction - “l1deposit”
+
+The deposit transaction is the entry point to the rollup system (See Figure 1). When a
+user wants to enter the Layer-2 Rollup, he has to deposit some Ether in the Layer-1
+bridge contract. Then this deposit (with a deduction for the Layer-2 costs) will be
+available in the Layer-2 for use in few minutes.
+
+The deposits are resembled in the user wallet as “l1deposit”. A deposit transfer
+triggers an event in the bridge contract which then informs the sequencer on the
+locked funds. Users are expected to wait until the sequencer captures the event from
+the Ethereum. This delay would vary based on the mainnet congestion.
 
 <div align="center">
     <img src="deposit_tx.PNG" alt="Image Alt Text" width="80%" height="80%" />
-    <p><strong>The Deposit Transaction - User Entrance to the Rollup System</strong></p>
+    <p><strong>Figure 1 : The Deposit Transaction - User Entrance to the Rollup System</strong></p>
+</div>
+
+
+&nbsp;
+&nbsp;
+
+### Layer-2 User Transaction - “l2transfer”
+Layer-2 user to user transfers or “l2transfer”s enable users to transfer funds without
+any delays related to Layer-1 block minting and costs.
+Once the transaction is initiated, the receiver will receive funds in few minutes in
+Layer-2 as sequencer updates the world state of the Rollup. In general, users may
+consider transaction “soft-finality” as soon as an honest sequencer submits the batch to
+the Ethereum, where in which transaction status changes to “ACCEPTED_IN_L1”.
+But the transaction “hard-finality” is achieved when the batch matures after the
+challenge period.
+
+&nbsp;
+&nbsp;
+
+### Withdrawal Transactions - “l2withdraw”, “l1withdraw”
+The withdrawal is the most critical transaction in a Rollup design. In case of an
+Optimistic Rollup, it is generally considered as a system drawback, since it takes at
+least 7 days to withdraw funds back in Layer-1 securely.
+Withdrawals happens in two steps in our protocol. First a user has to make an
+Laye-2 withdrawal (l2withdraw) where it updates the world state on the Rollup. As
+this transaction gets finalized in Layer-1, user can trigger an Layer-1 withdrawal
+(l1withdraw) to secure funds in Ethereum. During an “l1withdraw”, user wallet first
+requests a merkle proof from the sequencer for the initial “l2withdraw”. Then it
+submit this proof to the bridge contract which validates the transaction inclusion and
+eligibility.
+
+Here we make an assumption of an honest sequencer, who will always provide
+merkle proofs upon user requests. In case of a malicious sequencer who rejects to
+produce proofs, users may still recreate the merkle proofs with the data available in
+Layer-1. Therefore we still guarantee the safe withdrawal from the system without
+any obstacles. The complete illustration of the withdrawal procedure is shown in
+figure 2.
+
+<div align="center">
+    <img src="withdraw_tx.PNG" alt="Image Alt Text" width="80%" height="80%" />
+    <p><strong>Figure 2 :  The Withdrawal transactions - User Exit from the Rollup</strong></p>
 </div>
