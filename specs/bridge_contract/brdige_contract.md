@@ -6,7 +6,7 @@ bridge contract.
 
 A bridge contract has several roles in a simple payment system. It should accept
 deposits from the users and allow users to exit from the Rollup. It should perform as
-a “messenger ” between Layer-1 and Layer-2. And finally the bridge contract operate
+a “messenger” between Layer-1 and Layer-2. And finally the bridge contract operate
 as the final referee in case of a dispute over a fraudulent batch submission.
 In the following subsections we describe our approach in accomplishing 
 aforementioned properties of a Rollup bridge contract.
@@ -29,15 +29,34 @@ the same security as Ethereum. This enables a trust-minimized bridge creation
 for Layer-2.
 
 ## User Entrance and Exit
-The user entry to the Rollup is supported by “l1deposit” shown in figure 17. Here
+The user entry to the Rollup is supported by “l1deposit” transaction (see Figure 1). Here
 bridge contract emit an event indicating a valid fund deposit in Layer-1. User exit is
 not trivial as entrance. It consists of two transactions in Layer-2 and Layer-1 initiated
-in the given order (see figure 18). The high level view of the mechanism is discussed
+in the given order (see Figure 2). The high level view of the mechanism is discussed
 under Transactions 4.2 section.
 The Layer-1 withdrawal transaction, “l1withdraw” is implemented in the bridge
 contract. Once after the Layer-2 withdrawal is finalized in Layer-1, users can claim
 their funds initiating a withdraw request in bridge contract. This is generated through
 the user wallet. Our Layer-1 withdrawal is based on a proof-of-inclusion mechanism.
+
+&nbsp;
+&nbsp;
+
+<div align="center">
+    <img src="deposit_tx.PNG" alt="Image Alt Text" width="50%" height="50%" />
+    <p><strong>Figure 1 : User Entrance to Rollup</strong></p>
+</div>
+
+&nbsp;
+&nbsp;
+
+<div align="center">
+    <img src="withdraw_tx.PNG" alt="Image Alt Text" width="50%" height="50%" />
+    <p><strong>Figure 2 : User Exit from Rollup</strong></p>
+</div>
+
+&nbsp;
+&nbsp;
 
 ## Proof of Inclusion
 Proof of inclusion (PoI) is the methodology of verifying users have correctly withdrawn
@@ -69,7 +88,7 @@ the owner, confirming the validity of the user’s address.
 
 <div align="center">
     <img src="withdraw_authentication.PNG" alt="Image Alt Text" width="50%" height="50%" />
-    <p><strong>Figure 1 : Authentication Process for Layer-1 Withdrawal</strong></p>
+    <p><strong>Figure 3 : Authentication Process for Layer-1 Withdrawal</strong></p>
 </div>
 &nbsp;
 &nbsp;
