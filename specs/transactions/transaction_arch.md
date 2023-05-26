@@ -6,11 +6,11 @@ introduced more fields such as “maxPriorityFeePerGas”. In this work we use s
 the basic necessary fields as used in Ethereum and introduce new fields to assist our
 Rollup protocol.
 
-We prepare three different variants of a Rollup transaction. The first variant “type
-1”, shown in the figure 19 lives in the sequencer mempool throughout its lifecycle
-until it gets removed. The second variant “type 2” is the concise version of the
+We prepare three different variants of a Rollup transaction. The first variant “Type
+I”, shown in the figure I lives in the sequencer mempool throughout its lifecycle
+until it gets removed. The second variant “Type II” is the concise version of the
 first, which goes through transaction management cycles such as queuing, re-queuing.
-Third version “type 3”, is the last variant which goes in to the Layer-1 as compressed
+Third version “Type III”, is the last variant which goes in to the Layer-1 as compressed
 Calldata.
 
 ## Layer-2 Transaction Format - Type I
