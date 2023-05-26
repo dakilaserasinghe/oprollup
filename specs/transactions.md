@@ -87,6 +87,8 @@ produce proofs, users may still recreate the merkle proofs with the data availab
 Layer-1. Therefore we still guarantee the safe withdrawal from the system without
 any obstacles. The complete illustration of the withdrawal procedure is shown in
 figure 2.
+&nbsp;
+&nbsp;
 
 <div align="center">
     <img src="withdraw_tx.PNG" alt="Image Alt Text"/>
