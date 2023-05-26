@@ -50,7 +50,7 @@ the Ethereum. This delay would vary based on the mainnet congestion.
 &nbsp;
 
 <div align="center">
-    <img src="deposit_tx.PNG" alt="Image Alt Text" width="80%" height="80%" />
+    <img src="deposit_tx.PNG" alt="Image Alt Text" width="50%" height="50%" />
     <p><strong>Figure 1 : The Deposit Transaction - User Entrance to the Rollup System</strong></p>
 </div>
 
@@ -93,6 +93,6 @@ figure 2.
 &nbsp;
 
 <div align="center">
-    <img src="withdraw_tx.PNG" alt=""  width="60%" height="40%" />
+    <img src="withdraw_tx.PNG" alt=""  width="50%" height="40%" />
     <p><strong>Figure 2 :  The Withdrawal transactions - User Exit from the Rollup</strong></p>
 </div>
