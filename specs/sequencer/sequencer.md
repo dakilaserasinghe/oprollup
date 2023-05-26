@@ -16,11 +16,15 @@ blocks given a delay.
 This work is not performing a mechanism to mitigate censorship
 resistance. Henceforth we assume an honest behavior on transaction acceptance by
 the sequencer.
+&nbsp;
+&nbsp;
 
 <div align="center">
     <img src="sequencer.PNG" alt="Image Alt Text" width="70%" height="70%" />
     <p><strong>Figure 1 : The Structure of The Sequencer</strong></p>
 </div>
+&nbsp;
+&nbsp;
 
 The sequencer is entitled to order and execute transactions following a First-Come-First-Serve (FCFS) policy.
 It gets transactions in two ways, one via peer-to-peer transactions

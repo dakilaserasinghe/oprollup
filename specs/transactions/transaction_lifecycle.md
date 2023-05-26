@@ -32,8 +32,10 @@ Layer-1 will go again into **PENDING** state.
 If the batch lives through the challenge period, transaction will become **FINALIZED** in Ethereum. This is the final state of a transaction reaching the irreversible
 “hard-finality”. Once a transaction has achieved this state users can consume it
 without any risks.
+&nbsp;
+&nbsp;
 
 <div align="center">
-    <img src="transaction_lc.PNG" alt="Image Alt Text" width="50%" height="60%" />
+    <img src="transaction_lc.PNG" alt="Image Alt Text" width="60%" height="70%" />
     <p><strong>Figure 1 : The Transaction Lifecycle</strong></p>
 </div>
