@@ -91,6 +91,6 @@ figure 2.
 &nbsp;
 
 <div align="center">
-    <img src="withdraw_tx.PNG" alt="Image Alt Text"/>
+    <img src="withdraw_tx.PNG" alt=""  width="80%" height="80%" />
     <p><strong>Figure 2 :  The Withdrawal transactions - User Exit from the Rollup</strong></p>
 </div>
