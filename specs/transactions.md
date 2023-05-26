@@ -35,5 +35,5 @@ in Layer-1.
 &nbsp;
 
 <p align="center">
-<img src="deposit_tx.PNG" alt= “Test” width="80%" title="Deposits"/>
+<img src="deposit_tx.PNG" alt= “Test” width="80%" height="80%" title="Deposits"/>
 </p>
