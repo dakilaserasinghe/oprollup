@@ -8,6 +8,7 @@ Layer-2 user transactions and retrieving transaction status and balance.
 This wallet is a simple prototype of a cryptographic wallet. Our implementation
 guarantees the user private keys are not revealed to Rollup nodes but not all security
 threats are considered in this work.
+
 &nbsp;
 &nbsp;
 
