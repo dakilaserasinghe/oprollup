@@ -1,4 +1,4 @@
-**Abstract**
+# Abstract
 
 As the popularity of blockchain technology grows, the demand for efficient and
 scalable solutions becomes more apparent. Layer-1 blockchains frequently encounter
