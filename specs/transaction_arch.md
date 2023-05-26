@@ -59,7 +59,9 @@ is differed based on the transaction type.
 <p align="center">Layer-2 Transaction Format - Type I</p>
 &nbsp;
 &nbsp;
+
 ## Layer-2 Transaction Format - Type II
+
 Second version of the transaction, named as “txref” (in the software architecture)
 which abbreviates to “transaction reference”, carries enough information for the
 sequencer to carry out necessary operations having a pointer to the full data.
