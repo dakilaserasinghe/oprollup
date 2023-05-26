@@ -22,7 +22,7 @@ the sequencer.
     <p><strong>Figure 1 : The Structure of The Sequencer</strong></p>
 </div>
 
-The sequencer is entitled to order and execute transactions following a First-Come-First-Serve policy.
+The sequencer is entitled to order and execute transactions following a First-Come-First-Serve (FCFS) policy.
 It gets transactions in two ways, one via peer-to-peer transactions
 for Layer-2 transfers and Layer-2 withdrawals and others through Ethereum events for
 deposits and Layer-1 withdrawals. Periodically sequencer will get these by listening
