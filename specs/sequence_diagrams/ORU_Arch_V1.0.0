@@ -1,0 +1,58 @@
+title Optimistic Rollup Architecture V1.0.0
+
+participant Alice
+participant Bob
+participant Smart Contract
+participant Sequencer
+participant Verifier
+
+
+
+Alice->Smart Contract:deposit ETH **deposit()** (L1)
+Smart Contract->Sequencer: emit **Deposited()**
+
+Bob->Smart Contract: deposit ETH **deposit()** (L1)
+Smart Contract->Sequencer: emit **Deposited()**
+
+
+note left of Smart Contract:after few mins balances available in L2
+
+Alice-->>Sequencer: initiate L2 transfer **l2transfer(_target, _value, _nonce)** (L2)
+note over Sequencer: Transaction added in the sequencer mempool
+Sequencer-->>Alice: Response with transaction statue: **PENDING**
+
+Bob-->>Sequencer: L2 transfer **l2transfer(_target, _value, _nonce)** (L2)
+Sequencer-->>Bob: Response with transaction statue: **PENDING**
+
+
+//note over Sequencer: Lock Tx Block
+note over Sequencer: Sequencer get the transactions in the mempool as recieved
+# Bob-->>Sequencer: check transaction status **l2status(_txId)** (L2)
+# Sequencer-->>Bob: Response with status: **ACCEPTED_IN_L2**
+
+note over Sequencer: sequencer create a batch of transactions,\n execute the batch and sequence the valid transactions
+note over Sequencer: Then it generates the state root and compress the sequenced batch
+
+Sequencer->Smart Contract: Sequencer submits sequenced batch in layer 1 appendSequencerBatch()
+
+Smart Contract->Verifier: emit SequencedBatch(_batchId) with batch Id.
+
+note left of Verifier: Verifier listens to the 'SequencedBatch' event. Extracts calldata for transaction
+note left of Verifier: Verifier decompress the Tx bundle then execute them in the order
+note left of Verifier: If he finds a malicious tx aka a different pre-state/post-state/transaction root,\n he challenges the submitted block by the sequencer.
+Smart Contract<-Verifier: Challenge **verifyTransactions()**
+note over Smart Contract: Smart Contract recreate the State Root in layer 1
+
+Smart Contract->Sequencer: emit InvalidBatch(_batchId)
+note over Smart Contract: If verifier wins the challenge, sequencer will be slashed and verifier is rewarded.
+
+Alice-->>Sequencer: Withdraw in L2 **l2withdraw(_value, _nonce)**
+Sequencer->Smart Contract: Sequenced Batch Submission
+
+# Alice-->>Sequencer: get withdrawal proof **getProof(txId)**
+# Alice<<--Sequencer: returns txHash and Proof for it.
+note left of Sequencer: After a successful challenge period the batch\n inclusive of Alice's withdrawal gets finalized in L1.
+Alice-->>Sequencer: check withdraw tx status **l2status(_txid)**
+Sequencer-->>Alice: status : FINALIZED
+Alice->Smart Contract: withdraw from L1 **l1withdraw(_txid)**
+note over Alice: Alice's l1withdraw is executed and eth is received

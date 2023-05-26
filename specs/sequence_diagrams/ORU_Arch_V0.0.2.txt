@@ -1,0 +1,56 @@
+title Optimistic Rollup Architecture Draft V0.0.2
+
+participant Alice
+participant Bob
+participant Smart Contract
+participant Sequencer
+participant Verifier
+
+
+
+Alice->Smart Contract:deposit ETH **deposit()** (L1)
+Smart Contract->Sequencer: emit **Deposit()**
+
+Bob->Smart Contract: deposit ETH **deposit()** (L1)
+Smart Contract->Sequencer: emit **Deposit()**
+
+
+note left of Smart Contract:after few mins balances available in L2
+
+Alice-->>Sequencer: transfer money **transfer(_to, _amount)** (L2)
+Sequencer-->>Alice: Response with Tx **PENDING** state
+
+Bob-->>Sequencer: transfer money **transfer(_to, _amount)** (L2)
+Sequencer-->>Bob: Response with Tx **PENDING** state
+
+
+note over Sequencer: Lock Tx Block
+note over Sequencer: Sequencer get the transactions in the mempool as recieved;
+note over Sequencer: 1. Validate Txs.
+Bob-->>Sequencer: check Tx status **status(_txId)** (L2)
+Sequencer-->>Bob: Response with Tx **ACCEPTED_IN_L2** state: soft finality
+
+note over Sequencer: 2. Sequence Txs.
+note over Sequencer: 3. Execute Txs.
+note over Sequencer: 4. Generate the State Root (Merkle Tree).
+
+Sequencer->Smart Contract: Sequenced Batch Submission. Compressed Txs, transaction Root and State Root.
+
+Smart Contract->Verifier: emit Compressed Txs and\n State Root of latest Block.
+
+
+note left of Verifier: Verifier decompress the Tx bundle then execute them in the order,\n against his previous state root and account balances.
+note left of Verifier: If he finds a malicious Tx aka a different State Root,\n he challenge the submitted block by the sequencer.
+Smart Contract<-Verifier: Challenge **challenge(_newStateRoot, _balances, _txs)**
+note over Smart Contract: Smart Contract recreate the State Root with _balances and _txs
+
+Smart Contract->Sequencer: emit Resolution(Correct State Root)
+Smart Contract->Verifier: emit Resolution(Correct State Root)
+
+Alice-->>Sequencer: Withdraw money **withdraw(_amount)**
+Sequencer->Smart Contract: Sequenced Batch Submission
+
+Alice-->>Sequencer: get withdrawal proof **getProof(txId)**
+Alice<<--Sequencer: returns txHash and Proof for it.
+note left of Sequencer: After a successful challenge period the batch\n inclusive of Alice's withdrawal gets finalized in L1.
+Alice->Smart Contract: withdraw from L1 **withdraw(_txHash, _proof)**
