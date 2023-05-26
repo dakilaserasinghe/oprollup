@@ -116,7 +116,8 @@ class User {
         if (this.wallet[key].address) {
             const address = this.wallet[key].address;
             const balance = await this.provider.getBalance(address);
-            console.log("L1 Balance : ", balance.toString());
+            // console.log("L1 Balance (wei) : ", balance.toString());
+            console.log("L1 Balance (eth) : ", ethers.utils.formatEther(balance));
         } else {
             console.log(`key or address not available in the wallet`);
         }
@@ -128,7 +129,8 @@ class User {
             const { data: balance } = await axios.post(`${sequencerurl}/getbalance`, {
                 address: address
             });
-            console.log("L2 Balance : ", balance.balance.toString());
+            // console.log("L2 Balance (wei) : ", balance.balance.toString());
+            console.log("L2 Balance (eth) : ", ethers.utils.formatEther(balance.balance));
         } else {
             console.log(`address ${address} is not found`);
         }
@@ -337,7 +339,7 @@ program
 
 program
     .command('l2status <id>')
-    .description('Get transaction data')
+    .description('Get transaction Status')
     .action((id) => {
         user.gettxStatus(id);
     })
