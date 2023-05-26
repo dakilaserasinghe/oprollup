@@ -29,6 +29,17 @@ reordering the SCC. Then the protocol ends by slashing the malicious party and
 rewarding the winner. Half of the perpetrator’s bond will be slashed and the other
 half becomes the incentive for the winner.
 
+&nbsp;
+&nbsp;
+
+<div align="center">
+    <img src="protocol.PNG" alt="Image Alt Text" width="50%" height="50%" />
+    <p><strong>Algorithm 1 Dispute Resolution Protocol</strong></p>
+</div>
+
+&nbsp;
+&nbsp;
+
 ## Rationale for Burning a Percentage of the Fidelity Bond
 A percentage of the fidelity bond is burned without rewarding the whole amount
 as an incentive to the winner. This mechanism discourages malicious sequencers by
