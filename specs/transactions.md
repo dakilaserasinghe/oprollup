@@ -34,9 +34,7 @@ in Layer-1.
 
 &nbsp;
 
-<div style="text-align: center;">
-  <figure>
+<div align="center">
     <img src="deposit_tx.PNG" alt="Image Alt Text" width="80%" height="80%" />
-    <figcaption>The Deposit Transaction - User Entrance to the Rollup System</figcaption>
-  </figure>
+    <p><strong>The Deposit Transaction - User Entrance to the Rollup System</strong></p>
 </div>
