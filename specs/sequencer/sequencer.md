@@ -55,7 +55,7 @@ operations. As mentioned above sequencer will receive transactions through two w
 Direct peer-to-peer requests (REST) or via Ethereum events.
 In the best case scenario sequencer will batch them as they receive based on the
 FCFS policy. Once a transaction request or a deposit event is received, sequencer first
-will create a Layer-2 transaction (Figure 19) with the necessary information including
+will create a Layer-2 transaction (Type I) with the necessary information including
 a timestamp and a unique id. Then this transaction will be added in the mempool
 and a concise version of the transaction (Type II) is pushed into the transaction
 queue.
