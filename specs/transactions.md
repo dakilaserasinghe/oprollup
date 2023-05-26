@@ -32,6 +32,8 @@ transactions are “l2transfer” which is the user to user payment transaction 
 and “l2withdraw” which allows a user to stage a Layer-2 withdraw before he withdraw
 in Layer-1.
 
+&nbsp;
+
 <p align="center">
-<img src="deposit_tx.PNG" alt= “Test” width="30%" height="50%" title="Deposits"/>
+<img src="deposit_tx.PNG" alt= “Test” width="80%" title="Deposits"/>
 </p>
