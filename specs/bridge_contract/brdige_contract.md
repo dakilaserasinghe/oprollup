@@ -51,7 +51,7 @@ receivers.
 
 ## Authentication Process for Layer-1 Withdrawals
 Before executing the Proof of Inclusion, a withdrawal transaction should go through
-various validation steps. This complete process is illustrated in figure 24.
+various validation steps. This complete process is illustrated in figure 1.
 It should first verify if the Rollup is in a stable state to allow withdrawals. If there
 is a dispute over any block in the system, withdrawal transactions will be rejected
 until there is a resolution over the canonical chain.
@@ -63,6 +63,16 @@ transaction is definitely a withdrawal transaction. Finally, the system will aut
 the proof of inclusion by comparing it against the transaction root.
 After all of these checkpoints have passed successfully, the funds will be released to
 the owner, confirming the validity of the user’s address.
+
+&nbsp;
+&nbsp;
+
+<div align="center">
+    <img src="withdraw_authentication.PNG" alt="Image Alt Text" width="70%" height="70%" />
+    <p><strong>Figure 1 : Authentication Process for Layer-1 Withdrawal</strong></p>
+</div>
+&nbsp;
+&nbsp;
 
 ## State Commitment Chain
 The State Commitment Chain (SCC) is the canonical chain which preserves the world
