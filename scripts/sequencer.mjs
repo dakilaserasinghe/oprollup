@@ -15,7 +15,8 @@ import {
     logInfo,
     logWarn,
     l2Status,
-    recoverSender
+    recoverSender,
+    estimate_fee_savings
 } from './utils/utils.mjs'
 import { assert } from 'console';
 import { getAddress } from '@ethersproject/address';
@@ -57,7 +58,7 @@ class Sequencer extends Listner {
         this.txref = undefined;
 
         // maximum transactions in a sequenced batch.
-        this.maxtransactions = 5;
+        this.maxtransactions = 10;
 
         // uncle block gathers all the rejected
         // transaction references and kept for 'creation time +
@@ -601,14 +602,26 @@ class Sequencer extends Listner {
             [batch]);
         console.log("Batch encoded successfully.");
         console.log(`Encoded Batch : ${abiEncodedData}`);
-        // console.log(`Encoded Batch : ${Buffer.from(abiEncodedData)}`);
 
         if (compAlgorithm == 'pako') {
             const input = new Uint8Array(
                 new TextEncoder().encode(abiEncodedData));
+            console.log("Batch uint8 : ", input);
             console.log("batch length : ", input.length);
-            console.log("Batch uint8 : ", input)
-            return pako.deflateRaw(input, { level: 9 });
+            // data compression.
+            const compressed = pako.deflateRaw(input, { level: 9 });
+            console.log("compressed length : ", compressed.length);
+
+            // calculate compression ratio
+            console.log("compression Ratio (%) : ", compressed.length / abiEncodedData.length * 100.0);
+
+            // convert compressed data to hex string
+            const compressed_hex = Array.from(compressed).map((b) => b.toString(16).padStart(2, "0")).join("");
+            console.log("Compressed data : ", compressed_hex);
+
+            console.log("Estimated Fee Savings : ",
+                estimate_fee_savings(abiEncodedData.substring(2), compressed_hex));
+            return compressed;
         } else if (compAlgorithm == 'brotli') {
             return brotli.compress(Buffer.from(abiEncodedData));
         } else {
@@ -783,9 +796,9 @@ class Sequencer extends Listner {
 // state params
 const sequencer = new Sequencer();
 // test malicious sequencing at batch 1,3,5.
-sequencer.actMaliciousAt(1);
-sequencer.actMaliciousAt(3);
-sequencer.actMaliciousAt(5);
+// sequencer.actMaliciousAt(1);
+// sequencer.actMaliciousAt(3);
+// sequencer.actMaliciousAt(5);
 
 
 function callSequence() {

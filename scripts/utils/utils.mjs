@@ -176,6 +176,52 @@ const fakeRoot = () => {
     return '0x' + keccak256("fakeRoot").toString('hex');
 }
 
+/**
+ * Count zero bytes in calldata
+ * @param {string} data hex string of calldata 
+ * @returns count of zero bytes
+ */
+const count_zero_bytes = (data) => {
+    let count = 0
+    for (let i = 0; i < data.length; i = i + 2) {
+        const byte = data[i] + data[i + 1];
+        if (byte == "00")
+            count += 1
+    }
+    return count
+}
+
+/**
+ * Count non-zero bytes in calldata
+ * @param {string} data hex string of calldata 
+ * @returns count of non-zero bytes
+ */
+const count_non_zero_bytes = (data) => {
+    return (data.length / 2) - count_zero_bytes(data)
+}
+
+/**
+ * Estimates gas cost of calldata
+ * @param {string} data hex string of calldata 
+ * @returns estimated gas cost in wei
+ */
+const estimate_calldata_cost = (data) => {
+    return count_zero_bytes(data) * 4 + count_non_zero_bytes(data) * 16;
+}
+
+/**
+ * Estimate fee savings from L1 gas cost on calldata
+ * @param {string} uncompressed raw calldata (hex)
+ * @param {string} compressed compressed calldata (hex)
+ * @returns percentage fee savings
+ */
+const estimate_fee_savings = (uncompressed, compressed) => {
+    const uncomp_gas_cost = estimate_calldata_cost(uncompressed);
+    const comp_gas_cost = estimate_calldata_cost(compressed);
+    assert(uncomp_gas_cost - comp_gas_cost > 0,
+        "raw calldata cost shall not be lower than compressed calldata");
+    return (uncomp_gas_cost - comp_gas_cost) / uncomp_gas_cost * 100;
+}
 
 export {
     readContractABI,
@@ -193,5 +239,6 @@ export {
     fakeRoot,
     l2Status,
     standardLeafHash,
-    recoverSender
+    recoverSender,
+    estimate_fee_savings
 }
