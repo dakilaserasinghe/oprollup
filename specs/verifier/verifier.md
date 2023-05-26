@@ -3,7 +3,7 @@ In contrast to the Zero-Knowledge Rollups, Optimistic Rollups assume the “stat
 submitted by the sequencer is correctly executed unless challenged. Therefore in
 order to maintain optimal system performance, participants are expected to alarm
 the malevolence of the sequencer. These participants of the system who are assigned
-with this task are called “Verifiers”.
+with this task are called **“Verifiers”**.
 
 One of the main assumptions, we made in an Optimistic Rollup system is the
 availability of a “single verifier” who act for the integrity of the Rollup. As in a
