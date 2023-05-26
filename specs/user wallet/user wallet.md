@@ -8,11 +8,15 @@ Layer-2 user transactions and retrieving transaction status and balance.
 This wallet is a simple prototype of a cryptographic wallet. Our implementation
 guarantees the user private keys are not revealed to Rollup nodes but not all security
 threats are considered in this work.
+&nbsp;
+&nbsp;
 
 <div align="center">
     <img src="opr_wallet.PNG" alt="Image Alt Text" width="80%" height="80%" />
     <p><strong>Figure 1 : User Wallet CLI</strong></p>
 </div>
+&nbsp;
+&nbsp;
 
 ## CLI Commands
 Below we list down user commands of our CLI wallet.

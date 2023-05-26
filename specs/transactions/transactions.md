@@ -46,6 +46,8 @@ The deposits are resembled in the user wallet as “l1deposit”. A deposit tran
 triggers an event in the bridge contract which then informs the sequencer on the
 locked funds. Users are expected to wait until the sequencer captures the event from
 the Ethereum. This delay would vary based on the mainnet congestion.
+&nbsp;
+&nbsp;
 
 <div align="center">
     <img src="deposit_tx.PNG" alt="Image Alt Text" width="80%" height="80%" />
