@@ -33,7 +33,8 @@ The user entry to the Rollup is supported by “l1deposit” transaction (see Fi
 bridge contract emit an event indicating a valid fund deposit in Layer-1. User exit is
 not trivial as entrance. It consists of two transactions in Layer-2 and Layer-1 initiated
 in the given order (see Figure 2). The high level view of the mechanism is discussed
-under Transactions 4.2 section.
+under Transactions section.
+
 The Layer-1 withdrawal transaction, “l1withdraw” is implemented in the bridge
 contract. Once after the Layer-2 withdrawal is finalized in Layer-1, users can claim
 their funds initiating a withdraw request in bridge contract. This is generated through
