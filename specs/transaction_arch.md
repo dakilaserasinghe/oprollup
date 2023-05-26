@@ -81,3 +81,23 @@ unique number and this is indexed in mempool to withdraw full data.
 
 ```
 <p align="center">Layer-2 Transaction Format - Type II</p>
+
+## Layer-2 Transaction Format - Type III
+
+The final and the third version is the transaction format which goes to the Layer-1.
+As it directly interacts with Ethereum, it needs to be concise as much as possible to
+reduce Layer-1 Calldata gas costs. Therefore it carries only the exact information
+which is required to ensure a deterministic re-execution of transactions.
+
+```json
+    {
+        id : 2 ,
+        sender : 0 x70997970C51812dc3A010C7d01b50e0d17dc79C8 ,
+        target : 0 x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC ,
+        type : ’ l2transfer ’ ,
+        value : 100000000000000000 n ,
+        nonce : ’1 ’,
+        timestamp : 1679642993121 ,
+    }
+```
+<p align="center">Layer-2 Transaction Format - Type III</p>
