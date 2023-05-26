@@ -6,12 +6,14 @@ the sequencer is the gateway for users in Layer-2, sending direct signed transac
 The sequencer design depends on the trust assumptions in the system. For e.g.
 Arbitrum’s sequencer is trusted on transaction ordering. And it guarantees the
 sequencer has no capacity to censor any transaction in Layer-2.
+
 In general a sequencer has two ways of getting transactions. First through a direct
 peer-to-peer connection where users send their signed transactions to the sequencer.
 But if a malicious sequencer prevent a user from using the network, users are allowed
 to directly submit transactions to the Layer-1 which will be inserted in the next
 blocks given a delay.
-As stated previously, this work is not performing a mechanism to mitigate censorship
+
+This work is not performing a mechanism to mitigate censorship
 resistance. Henceforth we assume an honest behavior on transaction acceptance by
 the sequencer.
 
@@ -27,13 +29,15 @@ deposits and Layer-1 withdrawals. Periodically sequencer will get these by liste
 to the Layer-1 events. Layer-1 events may consists of events from deposits and events
 related to the verification challenge. Both deposits and Layer-2 transactions are
 added in the transaction mempool of the sequencer.
-As shown in the Figure 23 sequencer will start by creating a transaction batch.
+
+As shown in the Figure 1 sequencer will start by creating a transaction batch.
 The number of maximum transactions is a parameter which should be decided on
 several inputs such as Layer-1 batch size, dispute challenge cost etc. Here we have
 set the maximum transactions in a batch to 5 considering the ease of demonstration
 but it can be easily changed for any reasonable value. Valid transactions will be
 then encoded and compressed. Compressed batch along with other mandatory values
 (merkle roots) will be sent to Layer-1.
+
 In a Rollup system we shall assume two ways of sequencer behaviors. Best case
 scenario is an honest behavior from the sequencer where the chain rolls without
 any hustle. In the worst case, sequencer compromises the chain validity behaving
@@ -49,8 +53,9 @@ In the best case scenario sequencer will batch them as they receive based on the
 FCFS policy. Once a transaction request or a deposit event is received, sequencer first
 will create a Layer-2 transaction (Figure 19) with the necessary information including
 a timestamp and a unique id. Then this transaction will be added in the mempool
-and a concise version of the transaction (Figure 20) is pushed into the transaction
+and a concise version of the transaction (Type II) is pushed into the transaction
 queue.
+
 As we are assuming an honest sequencer, he will execute transactions in the received
 order, generate correct merkle roots demonstrating the complete world state and then
 append it to the state commitment chain in Ethereum. Once the transaction batch is
