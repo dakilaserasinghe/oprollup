@@ -2,7 +2,7 @@
 
 The transaction lifecyle includes the chain of states a transaction goes through
 starting from its creation until finality. The complete lifecycle of a layer-2 transaction,
-**l2transfer** is depicted in figure below.
+a **l2transfer**, is depicted in figure below.
 
 The lifecycle starts when a user triggers a Layer-2 transaction through the wallet
 which then goes to the sequencer mempool via a peer-to-peer connection. Upon
@@ -34,6 +34,6 @@ If the batch lives through the challenge period, transaction will become **FINAL
 without any risks.
 
 <div align="center">
-    <img src="transaction_lc.PNG" alt="Image Alt Text" width="80%" height="80%" />
+    <img src="transaction_lc.PNG" alt="Image Alt Text" width="50%" height="60%" />
     <p><strong>Figure 1 : The Transaction Lifecycle</strong></p>
 </div>
