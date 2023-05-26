@@ -17,10 +17,13 @@ threats are considered in this work.
 ## CLI Commands
 Below we list down user commands of our CLI wallet.
 - **add \<key\> \<privateKey\>** 
+
 add command allows users to enter their “privateKey” 
 with an identification “key” which is a unique id. The key is used
 identify the account when user has multiple private keys in the wallet.
-- **show** Shows wallet data to the user.
+- **show** 
+
+Shows wallet data to the user.
 - **l1deposit \<key\> \<ether\>** Deposit funds in Ethereum blockchain. 
 Command need two inputs “key” to identify correct private key for signing and
 “ether” value.
