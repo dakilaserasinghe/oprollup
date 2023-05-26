@@ -19,7 +19,7 @@ the sequencer.
 
 <div align="center">
     <img src="sequencer.PNG" alt="Image Alt Text" width="70%" height="70%" />
-    <p><strong>Figure 1 : The Transaction Lifecycle</strong></p>
+    <p><strong>Figure 1 : The Structure of The Sequencer</strong></p>
 </div>
 
 The sequencer is entitled to order and execute transactions following a First-Come-First-Serve policy.
