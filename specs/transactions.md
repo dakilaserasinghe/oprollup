@@ -89,6 +89,6 @@ any obstacles. The complete illustration of the withdrawal procedure is shown in
 figure 2.
 
 <div align="center">
-    <img src="withdraw_tx.PNG" alt="Image Alt Text" width="80%" height="80%" />
+    <img src="withdraw_tx.PNG" alt="Image Alt Text"/>
     <p><strong>Figure 2 :  The Withdrawal transactions - User Exit from the Rollup</strong></p>
 </div>
