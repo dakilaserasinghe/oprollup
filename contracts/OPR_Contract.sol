@@ -91,8 +91,30 @@ contract OPR_Contract {
     {
         // sequencer should adhere to the l1 batch id.
         require(batchId == _batchId, "Invalid batch Id for sequenced batch");
+
         // fidenlity bond requirement.
         require(msg.value >= fidelityBond, "Insufficient fidelity bond value");
+
+        // check state-commitment-chain intergrity.
+        // batch pre-state should be in consistence with pre-batch post state.
+        // genesis block is skipped.
+        uint256 batchIndex = _batchId - batchoffset;
+        if(batchId > 0) {
+            // we assume batchIndex can not reach to zero assuming continuous traffic
+            // in the L2 chain. Hence _batchId is always much greater than the batch off set.
+            // This shall be controlled by increasing the batch maturity condition. When the
+            // maturity becomes longer batchoffset is increased slowly, but the mean time sequencer
+            // may have appended blocks in the state chain which leads to a healthy wider range between
+            // batchId and batchoffset values.
+            // If batch id has reached zero, we skip the intergirty check with the previous hash value for
+            // now. Sequencer may still be acting honestly, keeping the post and pre state roots consistant
+            // in adjacent blocks. But it is still a concern in terms of continuity of the chain. But it does
+            // not breach the security of the rollup.
+            if(batchIndex > 0) {
+                require(scc[_batchId - batchoffset - 1].postStateRoot == _preStateRoot, "Inconsistent chain _preStateRoot");
+            }
+        }
+
         uint256 finality = block.timestamp + challengePeriod;
         scc.push(Lib_utils.stateCommitments(_preStateRoot,
                                 _postStateRoot,
