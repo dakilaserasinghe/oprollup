@@ -54,6 +54,16 @@ node scripts\verifer.mjs
 8. interact in the L2 by making transactions :)
 
 
-## Transaction lifecycle
+<!-- ## Transaction lifecycle
 ![Alt text](./ORU_Arch_V1.0.0.svg)
-<!-- <img src="./ORU_Arch_V1.0.0.svg">-->
+<img src="./ORU_Arch_V1.0.0.svg"> -->
+
+&nbsp;
+&nbsp;
+## The Rollup System Architecture
+<div align="center">
+    <img src="system_arch.jpg" alt="Image Alt Text" width="100%" height="100%" />
+    <p><strong>Figure : System Architecture</strong></p>
+</div>
+&nbsp;
+&nbsp;
