@@ -33,7 +33,7 @@ half becomes the incentive for the winner.
 &nbsp;
 
 <div align="center">
-    <img src="protocol.PNG" alt="Image Alt Text" width="50%" height="50%" />
+    <img src="protocol.PNG" alt="Image Alt Text" width="60%" height="60%" />
     <p><strong>Algorithm 1 Dispute Resolution Protocol</strong></p>
 </div>
 
@@ -44,7 +44,7 @@ half becomes the incentive for the winner.
 &nbsp;
 
 <div align="center">
-    <img src="protocol_simplified.jpg" alt="Image Alt Text" width="50%" height="50%" />
+    <img src="protocol_simplified.jpg" alt="Image Alt Text" width="80%" height="80%" />
     <p><strong> Dispute Resolution Protocol (Simplfied View) </strong></p>
 </div>
 
