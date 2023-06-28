@@ -6,7 +6,7 @@ This project demonstrates an optimistic rollup implementation.
 &nbsp;
 ## The Rollup System Architecture
 <div align="center">
-    <img src="system_arch.jpg" alt="Image Alt Text" width="100%" height="100%" />
+    <img src="system_arch.jpg" alt="Image Alt Text" />
     <p><strong>Figure : System Architecture</strong></p>
 </div>
 &nbsp;
