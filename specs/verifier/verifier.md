@@ -17,7 +17,7 @@ multiple verifiers to actively challenge and interact with the layer-1 bridge co
 &nbsp;
 
 <div align="center">
-    <img src="verifier.jpg" alt="Image Alt Text" width="70%" height="70%" />
+    <img src="verifier.jpg" alt="Image Alt Text" width="100%" height="100%" />
     <p><strong>Figure 1 : The Verification Process</strong></p>
 </div>
 &nbsp;
