@@ -13,6 +13,17 @@ on the state commitment chain.
 Even though this work is based on a centralized sequencer, our architecture enables
 multiple verifiers to actively challenge and interact with the layer-1 bridge contract.
 
+&nbsp;
+&nbsp;
+
+<div align="center">
+    <img src="verifier.jpg" alt="Image Alt Text" width="70%" height="70%" />
+    <p><strong>Figure 1 : The Verification Process</strong></p>
+</div>
+&nbsp;
+&nbsp;
+
+
 ## Verification Process
 The primary task of a Verifier is to listen on the events from Ethereum bridge contract.
 When the sequencer successfully append a sequenced batch in the state commitment
@@ -39,3 +50,5 @@ verifier re-execute the transactions and generate the new post world state root.
 state root should match with the retrieved post state from the sequencer. If any
 of the state roots, pre-state, post-state or transaction state is mismatched with the
 calculated roots, verifier challenges the batch submitting a **“fraud proof”**.
+
+

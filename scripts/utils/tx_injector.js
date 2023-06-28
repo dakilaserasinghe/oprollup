@@ -4,7 +4,7 @@ const { exec } = require('child_process');
 // This uses to experiment on the transaction batch compression and fee savings.
 
 const opr_command = 'opr l2transfer 1 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 0.0001 ';
-const runs = 1000;
+const runs = 10;
 async function runCommands() {
   for (let i = 1; i <= runs; i++) {
     const command = opr_command + String(i);

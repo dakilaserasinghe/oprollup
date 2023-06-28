@@ -21,7 +21,7 @@ contract OPR_Contract {
 
 
     bool reBatching;
-    uint16 challengePeriod = 10 minutes;
+    uint16 challengePeriod = 5 minutes;
     address public owner;
 
     uint256 public fidelityBond;
@@ -103,10 +103,10 @@ contract OPR_Contract {
             // we assume batchIndex can not reach to zero assuming continuous traffic
             // in the L2 chain. Hence _batchId is always much greater than the batch off set.
             // This shall be controlled by increasing the batch maturity condition. When the
-            // maturity becomes longer batchoffset is increased slowly, but the mean time sequencer
+            // maturity becomes longer batchoffset is increased slowly, but the in meantime sequencer
             // may have appended blocks in the state chain which leads to a healthy wider range between
             // batchId and batchoffset values.
-            // If batch id has reached zero, we skip the intergirty check with the previous hash value for
+            // If batch_index has become zero, we skip the intergirty check with the previous hash value for
             // now. Sequencer may still be acting honestly, keeping the post and pre state roots consistant
             // in adjacent blocks. But it is still a concern in terms of continuity of the chain. But it does
             // not breach the security of the rollup.

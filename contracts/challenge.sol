@@ -24,7 +24,10 @@ library challenge {
      * @param _value transfer amount.
      * @param _nonce sender nonce.
      */
-    function l2Transfer(Lib_utils.user memory _sender, Lib_utils.user memory _target, uint256 _value, uint256 _nonce) internal pure {
+    function l2Transfer(Lib_utils.user memory _sender,
+                        Lib_utils.user memory _target,
+                        uint256 _value,
+                        uint256 _nonce) internal pure {
         if(_sender.amount >= _value) {
             if(_sender.nonce + 1 == _nonce) {
                 _sender.amount -= _value;
@@ -53,11 +56,11 @@ library challenge {
     /**
      * user search in the users array.
      * @param _users users array consisits of all users.
-     * @param _a address of the user been searched.
+     * @param _address address of the user.
      */
-    function getUser(Lib_utils.user[] memory _users, address _a) internal pure returns (Lib_utils.user memory) {
+    function getUser(Lib_utils.user[] memory _users, address _address) internal pure returns (Lib_utils.user memory) {
         for(uint256 i = 0; i < _users.length; i++) {
-            if(_users[i].account == _a) {
+            if(_users[i].account == _address) {
                 return _users[i];
             }
         }

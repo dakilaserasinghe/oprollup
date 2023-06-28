@@ -20,7 +20,7 @@ the sequencer.
 &nbsp;
 
 <div align="center">
-    <img src="sequencer.PNG" alt="Image Alt Text" width="70%" height="70%" />
+    <img src="sequencer.jpg" alt="Image Alt Text" width="70%" height="70%" />
     <p><strong>Figure 1 : The Structure of The Sequencer</strong></p>
 </div>
 &nbsp;

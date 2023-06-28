@@ -607,10 +607,10 @@ class Sequencer extends Listner {
             const input = new Uint8Array(
                 new TextEncoder().encode(abiEncodedData));
             console.log("Batch uint8 : ", input);
-            console.log("batch length : ", input.length);
+            console.log("batch size : ", input.length);
             // data compression.
             const compressed = pako.deflateRaw(input, { level: 9 });
-            console.log("compressed length : ", compressed.length);
+            console.log("compressed size : ", compressed.length);
 
             // calculate compression ratio
             console.log("compression Ratio (%) : ", compressed.length / abiEncodedData.length * 100.0);
@@ -719,6 +719,7 @@ class Sequencer extends Listner {
             this.acceptBatchinL1(this.executedtxbatch);
             this.batchId++;
             logInfo("post-sequence run sucessfully executed.");
+            logInfo(`Time (sec): ${Math.floor(Date.now() / 1000)}`);
         } else {
             // re-queue executed transaction batch back to the queue.
             this.reQueue(this.executedtxbatch);
@@ -817,7 +818,7 @@ function listner() {
 }
 
 eventEmitter.on('sequence', callSequence);
-setInterval(() => { eventEmitter.emit('sequence'); }, 100000);
+setInterval(() => { eventEmitter.emit('sequence'); }, 50000);
 
 eventEmitter.on('chainUpdate', callChainUpdate);
 setInterval(() => { eventEmitter.emit('chainUpdate'); }, 150000);

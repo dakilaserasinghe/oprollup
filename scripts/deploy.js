@@ -10,7 +10,7 @@ async function main() {
   // disable auto mining.
   await network.provider.send("evm_setAutomine", [false]);
   // set average block time to 10s
-  await network.provider.send("evm_setIntervalMining", [10000]);
+  await network.provider.send("evm_setIntervalMining", [12000]);
   const OPR_Contract = await hre.ethers.getContractFactory("OPR_Contract");
   const opr_contract = await OPR_Contract.deploy();
 

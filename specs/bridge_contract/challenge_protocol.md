@@ -40,6 +40,17 @@ half becomes the incentive for the winner.
 &nbsp;
 &nbsp;
 
+&nbsp;
+&nbsp;
+
+<div align="center">
+    <img src="protocol_simplified.jpg" alt="Image Alt Text" width="50%" height="50%" />
+    <p><strong> Dispute Resolution Protocol (Simplfied View) </strong></p>
+</div>
+
+&nbsp;
+&nbsp;
+
 ## Rationale for Burning a Percentage of the Fidelity Bond
 A percentage of the fidelity bond is burned without rewarding the whole amount
 as an incentive to the winner. This mechanism discourages malicious sequencers by
