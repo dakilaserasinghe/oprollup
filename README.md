@@ -7,7 +7,9 @@ In this project, we explore the architecture and approaches of Optimistic Rollup
 ### Key Features:
 
 - Optimistic Rollup implementation: Our prototype demonstrates the fundamental principles of an Optimistic Rollups utilizing fraud proofs for protocol integrity.
+We implement all actors of an optimistic rollup, a [sequencer](/specs/sequencer/sequencer.md), a [verifier](/specs/verifier/verifier.md), the [bridge contract](/specs/bridge_contract/brdige_contract.md) and a [user wallet](/specs/user%20wallet/user%20wallet.md) for client side.
 - Simple payment system: We focus on creating a user-friendly payment system within the Rollup, enabling fast and cost-effective transactions.
+- Challenge Protool: We implement a simple single-round [challenge protocol](/specs/bridge_contract/challenge_protocol.md).
 - Data compression techniques: We explore data compression mechanisms to optimize storage and enhance efficiency within the Rollup architecture.
 - Scalability and usability analysis: We conduct comprehensive experiments to evaluate the performance metrics of our implementation and compare them with existing works.
 - Future research and development: We identify the limitations inherent in our Rollup and propose potential avenues for future enhancements and exploration.
