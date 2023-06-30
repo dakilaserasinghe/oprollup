@@ -119,7 +119,7 @@ undergone a comprehensive test that would encompass the entire network and utili
 [^3]: Single-Round proof system
 [^4]: Decentralized Autonomous Organization
 
-### Rollup Maturity Assessment
+### Rollup Maturity Assessment[^6]
 
 | <div style="width: 400px">Stage 0 Requirements</div>  | |
 | :-- | :---: |
@@ -143,4 +143,4 @@ Is the Security Council properly set up? | ❌ |
 | Do users have at least 30 days to exit in case of unwanted upgrades? | ❌ |
 | Is the Security Council restricted to act only due to errors detected on chain? | ❌ |
 
-
+[^6]: Luca Donno, [“Introducing stages — a framework to evaluate rollups maturity.”](https://medium.com/l2beat/introducing-stages-a-framework-to-evaluate-rollups-maturity-d290bb22befe), June 20, 2023 [Online]. [Online; last accessed 20-June-2023].
