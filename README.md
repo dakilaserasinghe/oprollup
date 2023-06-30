@@ -197,9 +197,9 @@ Is the Security Council properly set up? | ❌ |
 | Is the Security Council restricted to act only due to errors detected on chain? | ❌ |
 
 ## Limitations
-Limitation of the system is given [here](/specs/limitations.md)
+Limitation of the system is given [here](/specs/limitations.md).
 
 ## Future Work
-See future directions [here](/specs/future_work.md)
+See future directions [here](/specs/future_work.md).
 
 [^6]: Luca Donno, [“Introducing stages — a framework to evaluate rollups maturity.”](https://medium.com/l2beat/introducing-stages-a-framework-to-evaluate-rollups-maturity-d290bb22befe), June 20, 2023 [Online]. [Online; last accessed 20-June-2023].
