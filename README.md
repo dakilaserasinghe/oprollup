@@ -197,7 +197,7 @@ Is the Security Council properly set up? | ❌ |
 | Is the Security Council restricted to act only due to errors detected on chain? | ❌ |
 
 ## Limitations
-Limitation of the system is given [here](/specs/limitations.md).
+We discuss limitations of this work [here](/specs/limitations.md).
 
 ## Future Work
 See future directions [here](/specs/future_work.md).
