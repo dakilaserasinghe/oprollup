@@ -86,9 +86,44 @@ open a command prompt in the root directory and run
 node scripts\verifer.mjs
 ```
 
-8. interact in the L2 by making transactions :)
+8. Make user transactions.
 
+    1. add user private key into wallet.
+        ```shell
+        opr add <key> <privateKey>
+        ```
+        \<key\> is an arbitrary unique integer, which is used by specify the account.
 
+    2. User entrance to the Rollup. Deposit funds in bridge contract.
+        ```shell
+        opr l1deposit <key> <ether>
+        ```
+
+    3. check user balances in Layer-1 and Layer-2.
+        ```shell
+        opr l1balance <key>
+        ```
+        ```shell
+        opr l2balance <key>
+        ```
+
+    4. Layer-2 user transactions.
+        ```shell
+        opr l2transfer <key> <target> <value> <nonce>
+        ```
+
+    5. User exit from the Rollup.
+        Layer-2 withdraw.
+        ```shell
+        opr l2withdraw <key> <value> <nonce>
+        ```
+
+        Layer-1 withdraw.
+        ```shell
+        opr l1withdraw <key> <id>
+        ```
+
+    For more info see the specification for [user wallet](/specs/user%20wallet/user%20wallet.md). 
 <!-- ## Transaction lifecycle
 ![Alt text](./ORU_Arch_V1.0.0.svg)
 <img src="./ORU_Arch_V1.0.0.svg"> -->
