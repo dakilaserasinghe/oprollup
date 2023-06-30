@@ -182,7 +182,7 @@ undergone a comprehensive test that would encompass the entire network and utili
 | Does the project provide Data Availability (DA) on L1? | ✔️ |
 | Is software capable of reconstructing the rollup’s state open source? | ✔️ |
 
-| Stage 1 Requirements | |
+| <div style="width: 688px">Stage 1 Requirements</div> | |
 | :-- | :---: |
 | Does the project use a proper proof system? | ✔️ |
 | Are there at least 5 external actors that can submit a fraud proof? | ✔️ |
