@@ -24,12 +24,17 @@ For detailed information of the Optimistic Rollup prototype, please refer to the
 &nbsp;
 <div align="center">
     <img src="system_arch.jpg" alt="Image Alt Text" />
-    <p><strong>Figure : System Architecture</strong></p>
+    <p><strong>Figure 1: System Architecture</strong></p>
 </div>
 &nbsp;
 &nbsp;
 
-
+<div align="center">
+    <img src="sys_seq_simplified.jpg" alt="Image Alt Text" />
+    <p><strong>Figure 2: System Sequence Diagram (Simplified)</strong></p>
+</div>
+&nbsp;
+&nbsp;
 
 ## Setup guide
 &nbsp;
@@ -159,7 +164,10 @@ Is the Security Council properly set up? | ❌ |
 | Do users have at least 30 days to exit in case of unwanted upgrades? | ❌ |
 | Is the Security Council restricted to act only due to errors detected on chain? | ❌ |
 
+## Limitations
 Limitation of the system is given [here](/specs/limitations.md)
 
+## Future Work
+See future directions [here](/specs/future_work.md)
 
 [^6]: Luca Donno, [“Introducing stages — a framework to evaluate rollups maturity.”](https://medium.com/l2beat/introducing-stages-a-framework-to-evaluate-rollups-maturity-d290bb22befe), June 20, 2023 [Online]. [Online; last accessed 20-June-2023].
