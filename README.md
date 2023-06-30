@@ -39,7 +39,6 @@ For detailed information of the Optimistic Rollup prototype, please refer to the
 
 ## Setup guide
 &nbsp;
-&nbsp;
 1. install packages:
 go to the root directory and run.
 
@@ -96,10 +95,8 @@ node scripts\verifer.mjs
 &nbsp;
 &nbsp;
 ## System Evaluation
-&nbsp;
-&nbsp;
-### Performance Evaluation
-&nbsp;
+
+### 1. System Performance Evaluation
 
 | System | Max Theoretical Throughput (tps) | practical Throughput (tps)[^*] | L2 Approach | Finality |
 |:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
@@ -118,8 +115,7 @@ undergone a comprehensive test that would encompass the entire network and utili
 &nbsp;
 &nbsp;
 
-### Characteristic Evaluation
-&nbsp;
+### 2. Characteristic Evaluation
 
 | Properties | Arbitrum | Optimism | Fuel V1 | This Work |
 |:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
@@ -140,8 +136,7 @@ undergone a comprehensive test that would encompass the entire network and utili
 &nbsp;
 &nbsp;
 
-### Rollup Maturity Assessment[^6]
-&nbsp;
+### 3. Rollup Maturity Assessment[^6]
 
 | <div style="width: 400px">Stage 0 Requirements</div>  | |
 | :-- | :---: |
