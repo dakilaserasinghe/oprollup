@@ -14,11 +14,14 @@ In this project, we explore the architecture and approaches of Optimistic Rollup
 
 Through this project, we aim to contribute to the advancement of scalable blockchain solutions by showcasing the benefits and challenges of Optimistic Rollups. We hope this work will facilitate widespread adoption and efficient user experiences in the blockchain ecosystem.
 
-For detailed information and instructions on setting up the Optimistic Rollup prototype, please refer to the documentation provided in [specification](/specs/).
+For detailed information of the Optimistic Rollup prototype, please refer to the documentation provided in [specification](/specs/).
+
 
 &nbsp;
 &nbsp;
 ## The Rollup System Architecture
+&nbsp;
+&nbsp;
 <div align="center">
     <img src="system_arch.jpg" alt="Image Alt Text" />
     <p><strong>Figure : System Architecture</strong></p>
@@ -26,8 +29,11 @@ For detailed information and instructions on setting up the Optimistic Rollup pr
 &nbsp;
 &nbsp;
 
-## Setup guide
 
+
+## Setup guide
+&nbsp;
+&nbsp;
 1. install packages:
 go to the root directory and run.
 
@@ -81,10 +87,13 @@ node scripts\verifer.mjs
 <!-- ## Transaction lifecycle
 ![Alt text](./ORU_Arch_V1.0.0.svg)
 <img src="./ORU_Arch_V1.0.0.svg"> -->
-
+&nbsp;
+&nbsp;
 ## System Evaluation
-
+&nbsp;
+&nbsp;
 ### Performance Evaluation
+&nbsp;
 
 | System | Max Theoretical Throughput (tps) | practical Throughput (tps)[^*] | L2 Approach | Finality |
 |:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
@@ -104,6 +113,7 @@ undergone a comprehensive test that would encompass the entire network and utili
 &nbsp;
 
 ### Characteristic Evaluation
+&nbsp;
 
 | Properties | Arbitrum | Optimism | Fuel V1 | This Work |
 |:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
@@ -125,6 +135,7 @@ undergone a comprehensive test that would encompass the entire network and utili
 &nbsp;
 
 ### Rollup Maturity Assessment[^6]
+&nbsp;
 
 | <div style="width: 400px">Stage 0 Requirements</div>  | |
 | :-- | :---: |
@@ -147,5 +158,8 @@ Is the Security Council properly set up? | ❌ |
 | Is the fraud proof system permissionless? | ✔️ |
 | Do users have at least 30 days to exit in case of unwanted upgrades? | ❌ |
 | Is the Security Council restricted to act only due to errors detected on chain? | ❌ |
+
+Limitation of the system is given [here](/specs/limitations.md)
+
 
 [^6]: Luca Donno, [“Introducing stages — a framework to evaluate rollups maturity.”](https://medium.com/l2beat/introducing-stages-a-framework-to-evaluate-rollups-maturity-d290bb22befe), June 20, 2023 [Online]. [Online; last accessed 20-June-2023].
