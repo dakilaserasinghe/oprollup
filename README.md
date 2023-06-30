@@ -82,9 +82,11 @@ node scripts\verifer.mjs
 ![Alt text](./ORU_Arch_V1.0.0.svg)
 <img src="./ORU_Arch_V1.0.0.svg"> -->
 
-## System Performance Evaluation
+## System Evaluation
 
-| System | Max Theoretical Throughput (tps) | practical Throughput (tps) | L2 Approach | Finality |
+### Performance Evaluation
+
+| System | Max Theoretical Throughput (tps) | practical Throughput (tps)[^*] | L2 Approach | Finality |
 |:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
 |   Polygon      |     65,000     |     6,900    | Sidechain/Plasma | 3h(PoS), 7days(Plasma) |
 |   Optimism      |     200     |     110    | Optimistic Rollup | 7 days |
@@ -95,7 +97,11 @@ node scripts\verifer.mjs
 [^1]: Practical throughput of this work was not properly tested. The proposed Rollup system has not
 undergone a comprehensive test that would encompass the entire network and utilization.
 
-## Characteristic Evaluation
+[^*]: R. Neiheiser, G. Inácio, L. Rech, C. Montez, M. Matos, and L. Rodrigues, “Practical limitations of ethereum’s layer-2,” IEEE Access, vol. 11, pp. 8651–
+8662, 2023.
+
+
+### Characteristic Evaluation
 
 | Properties | Arbitrum | Optimism | Fuel V1 | This Work |
 |:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
@@ -112,3 +118,29 @@ undergone a comprehensive test that would encompass the entire network and utili
 [^2]: Multi-Round proof system
 [^3]: Single-Round proof system
 [^4]: Decentralized Autonomous Organization
+
+### Rollup Maturity Assessment
+
+| <div style="width: 400px">Stage 0 Requirements</div>  | |
+| :-- | :---: |
+| Does the project call itself a Rollup? | ✔️ |
+| Are L2 state roots posted on L1? | ✔️ | 
+| Does the project provide Data Availability (DA) on L1? | ✔️ |
+| Is software capable of reconstructing the rollup’s state open source? | ✔️ |
+
+| <div style="width: 600px">Stage 1 Requirements</div> | |
+| :-- | :---: |
+| Does the project use a proper proof system? | ✔️ |
+| Are there at least 5 external actors that can submit a fraud proof? | ✔️ |
+| Can the users exit without the operator’s coordination? | ❌ |
+| Do users have at least 7 days to exit in case of unwanted upgrades (Security Council
+and governance excluded)? | ❌ |
+Is the Security Council properly set up? | ❌ |
+
+| <div style="width: 400px">Stage 2 Requirements</div>  | |
+| :-- | :---: |
+| Is the fraud proof system permissionless? | ✔️ |
+| Do users have at least 30 days to exit in case of unwanted upgrades? | ❌ |
+| Is the Security Council restricted to act only due to errors detected on chain? | ❌ |
+
+
