@@ -11,24 +11,24 @@ with Rollups being a prominent contender. Rollups provide a Layer-2 scaling solu
 protocols. They aim to enhance transaction throughput and lower costs by leveraging off-chain computations. This approach lightens the load on the parent chain,
 improving scalability while maintaining decentralization and security.
 
-Rollups come in different flavors, with Optimistic Rollups and Zero-Knowledge
-Rollups being the primary realizations. Optimistic Rollups operate on the assumption
-that transactions are valid until proven wrong and rely on fraud proofs to ensure
-the integrity of the protocol. And Zero-Knowledge Rollups incorporate advanced
-cryptographic techniques to ensure security and faster finality.
+Rollups come in various flavors, including Optimistic Rollups and Zero-Knowledge
+Rollups. Optimistic Rollups assume transaction validity until proven otherwise and
+employ fraud proofs for protocol integrity. Zero-Knowledge Rollups utilize advanced
+cryptographic techniques for enhanced security and faster finality.
 
 The objective of this thesis is to design and implement an Optimistic Rollup
-prototype specifically tailored for a simple payment system. In pursuit of this
-objective, we delve into comprehensive discussions on various aspects related to
-Optimistic Rollups. We explore the current architectural trends, advantages, and
-limitations associated with these solutions.
+prototype for a simple payment system. We extensively discuss various aspects of
+Optimistic Rollups, including current architectural trends and approaches in the
+state-of-the-art. Additionally, we analyze Layer-2 economics, identifying critical cost
+factors and associated challenges in the Rollup protocol.
 
-Additionally, we analyze the economics and transaction cost intricacies of Rollups,
-focusing on Layer-2 transaction costs and identifying critical cost factors. Furthermore,
-we investigate data compression methods employed in Optimistic Rollups and conduct
-experiments to evaluate their effectiveness. By conducting a thorough analysis of the
-security properties and associated challenges, we aim to gain deeper insights into the
-design considerations of Optimistic Rollups.
+Having presented our Rollup architecture, we delve deeper into the exploration of
+data compression techniques utilized in Optimistic Rollups. We perform comprehensive experiments to evaluate the efficacy of our compression mechanism.
 
-Finally, the thesis concludes with a summary of the research findings, highlighting
-the contributions, insights and recommendations for a future work.
+Subsequently, we conduct an extensive analysis, focusing on the scalability and
+usability aspects of our implementation. This involves comparing key system performance metrics with existing works. Further, we identify the limitations inherent in
+our Rollup and propose potential avenues for future research and development.
+
+Finally, the thesis concludes by summarizing the research findings, emphasizing
+the contributions and insights gained.
+

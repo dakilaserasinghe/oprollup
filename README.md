@@ -1,6 +1,20 @@
 # Design and Implementation of an Optimistic Rollup System
 
-This project demonstrates an optimistic rollup implementation.
+This project aims to design and implement an Optimistic Rollup prototype for a simple payment system. As the demand for efficient and scalable blockchain solutions grows, Layer-1 blockchains face challenges in managing a large number of transactions, leading to higher fees and longer processing times. Optimistic Rollups offer a Layer-2 scaling solution that enhances transaction throughput and lowers costs by leveraging off-chain computations.
+
+In this project, we explore the architecture and approaches of Optimistic Rollups, including current trends in the state-of-the-art. We analyze Layer-2 economics, identifying critical cost factors and challenges in the Rollup protocol. Our objective is to develop a prototype that improves scalability while maintaining decentralization and security.
+
+### Key Features:
+
+- Optimistic Rollup implementation: Our prototype demonstrates the fundamental principles of an Optimistic Rollups utilizing fraud proofs for protocol integrity.
+- Simple payment system: We focus on creating a user-friendly payment system within the Rollup, enabling fast and cost-effective transactions.
+- Data compression techniques: We explore data compression mechanisms to optimize storage and enhance efficiency within the Rollup architecture.
+- Scalability and usability analysis: We conduct comprehensive experiments to evaluate the performance metrics of our implementation and compare them with existing works.
+- Future research and development: We identify the limitations inherent in our Rollup and propose potential avenues for future enhancements and exploration.
+
+Through this project, we aim to contribute to the advancement of scalable blockchain solutions by showcasing the benefits and challenges of Optimistic Rollups. We hope this work will facilitate widespread adoption and efficient user experiences in the blockchain ecosystem.
+
+For detailed information and instructions on setting up the Optimistic Rollup prototype, please refer to the documentation provided in [specification](/specs/).
 
 &nbsp;
 &nbsp;
@@ -68,4 +82,33 @@ node scripts\verifer.mjs
 ![Alt text](./ORU_Arch_V1.0.0.svg)
 <img src="./ORU_Arch_V1.0.0.svg"> -->
 
+## System Performance Evaluation
 
+| System | Max Theoretical Throughput (tps) | practical Throughput (tps) | L2 Approach | Finality |
+|:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
+|   Polygon      |     65,000     |     6,900    | Sidechain/Plasma | 3h(PoS), 7days(Plasma) |
+|   Optimism      |     200     |     110    | Optimistic Rollup | 7 days |
+|   Arbitrum      |     4,500     |     102    | Optimistic Rollup | 7 days |
+|   ZkSync      |     3,000     |     165    | Zero-Knowledge Rollup | 1 hour |
+|   This Work      |     9,000     |     1[^1]    | Optimistic Rollup | 7 days |
+
+[^1]: Practical throughput of this work was not properly tested. The proposed Rollup system has not
+undergone a comprehensive test that would encompass the entire network and utilization.
+
+## Characteristic Evaluation
+
+| Properties | Arbitrum | Optimism | Fuel V1 | This Work |
+|:------------:|:--------------:|:-------------:|:-------------:|:-------------:|
+| Purpose | Universal | Universal | Payments | Payments |
+| Model | Account | Account | UTXO | Account |
+| Data Availability | On-chain |On-chain |On-chain |On-chain |
+| State Validation | Fraud Proofs(MR)[^2] |  In Development | Fraud Proofs(SR)[^3] | Fraud Proof(SR) |
+| Upgreadibility | Security Council & DAO[^4] | Upgrade Keys | Immutable | Upgrade Keys |
+| Centralized Sequence | Yes | Yes | Yes | Yes |
+| Censorship Resistance | Self-sequence | Self-sequence | Self-sequence | No mechanism |
+| Security Audits | Yes | Yes | Yes | No |
+| Rollup Stage | Stage 1 | Stage 0 | Stage 2 | Stage 0 |
+
+[^2]: Multi-Round proof system
+[^3]: Single-Round proof system
+[^4]: Decentralized Autonomous Organization
