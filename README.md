@@ -175,23 +175,22 @@ undergone a comprehensive test that would encompass the entire network and utili
 
 ### 3. Rollup Maturity Assessment[^6]
 
-| <div style="width: 400px">Stage 0 Requirements</div>  | |
+| <div style="width: 688px">Stage 0 Requirements</div>  | |
 | :-- | :---: |
 | Does the project call itself a Rollup? | ✔️ |
 | Are L2 state roots posted on L1? | ✔️ | 
 | Does the project provide Data Availability (DA) on L1? | ✔️ |
 | Is software capable of reconstructing the rollup’s state open source? | ✔️ |
 
-| <div style="width: 600px">Stage 1 Requirements</div> | |
+| Stage 1 Requirements | |
 | :-- | :---: |
 | Does the project use a proper proof system? | ✔️ |
 | Are there at least 5 external actors that can submit a fraud proof? | ✔️ |
 | Can the users exit without the operator’s coordination? | ❌ |
-| Do users have at least 7 days to exit in case of unwanted upgrades (Security Council
-and governance excluded)? | ❌ |
+| Do users have at least 7 days to exit in case of unwanted upgrades (Security Council and governance excluded)? | ❌ |
 Is the Security Council properly set up? | ❌ |
 
-| <div style="width: 400px">Stage 2 Requirements</div>  | |
+| <div style="width: 688px">Stage 2 Requirements</div>  | |
 | :-- | :---: |
 | Is the fraud proof system permissionless? | ✔️ |
 | Do users have at least 30 days to exit in case of unwanted upgrades? | ❌ |
