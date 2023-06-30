@@ -30,13 +30,11 @@ For detailed information of the Optimistic Rollup prototype, please refer to the
 &nbsp;
 
 <div align="center">
-    <img src="sys_seq_simplified.jpg?raw=true" alt="Image Alt Text" />
+    <img src="sys_seq_simplified.jpg?raw=true" alt="Image Alt Text"/>
     <p><strong>Figure 2: System Sequence Diagram (Simplified)</strong></p>
 </div>
 &nbsp;
 &nbsp;
-
-![System Sequence Diagram](sys_seq_simplified.jpg "Figure 2: System Sequence Diagram (Simplified)")
 
 
 ## Setup guide
