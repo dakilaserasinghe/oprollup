@@ -100,6 +100,8 @@ undergone a comprehensive test that would encompass the entire network and utili
 [^*]: R. Neiheiser, G. Inácio, L. Rech, C. Montez, M. Matos, and L. Rodrigues, “Practical limitations of ethereum’s layer-2,” IEEE Access, vol. 11, pp. 8651–
 8662, 2023.
 
+&nbsp;
+&nbsp;
 
 ### Characteristic Evaluation
 
@@ -118,6 +120,9 @@ undergone a comprehensive test that would encompass the entire network and utili
 [^2]: Multi-Round proof system
 [^3]: Single-Round proof system
 [^4]: Decentralized Autonomous Organization
+
+&nbsp;
+&nbsp;
 
 ### Rollup Maturity Assessment[^6]
 
